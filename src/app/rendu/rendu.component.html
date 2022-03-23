@@ -1,0 +1,50 @@
+<div class="col-md-6" id="tout">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Notification Rendu</h4>
+      </div>
+      <div class="card-body" *ngFor="let item of listRendu">
+       
+       
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <i class="material-icons">close</i>
+            </button>
+            <span (click)="onSelectAdmin(item)">
+                <a class="btn btn-link btn-info btn-just-icon like" id="openUserInfo" data-toggle="modal" data-target="#myModal" ></a>
+              <b> {{item.apprenant.nom}} {{item.apprenant.prenom}} </b> à fait un rendu sur le Brief {{item.brief.type}} le {{item.brief.date}}</span>
+              
+          </div>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">{{selectedAdmin?.apprenant.nom}} {{selectedAdmin?.apprenant.prenom}} </h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">clear</i>
+                  </button>
+                </div>
+                <ul class="list-group list-group-unbordered" >
+
+                    <li class="list-group-item">
+                        <b>Url</b> <a class="pull-right">{{selectedAdmin?.url}}</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Message </b> <a class="pull-right">{{selectedAdmin?.message}}</a>
+                    </li>
+                    
+       
+                   
+                </ul>
+                <div class="modal-footer">
+                  
+                  <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
